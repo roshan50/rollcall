@@ -3,10 +3,6 @@ import {connect} from 'react-redux'
 
 class Dashboard extends Component {
     componentDidMount(){
-        // if(!this.props.auth){
-        //     this.props.history.push('/login');
-        // }
-        console.log(this.props.auth)
     }
 
     render() {

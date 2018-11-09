@@ -28,6 +28,10 @@ form button, form h5{
 nav{
     background-color: #424242;
 }
+.nav-link a{
+    color: #796173 !important;
+}
+
 .bm-item {
     display: inline-block;
     text-decoration: none;
@@ -38,18 +42,20 @@ nav{
 
 .bm-item:hover {
     color: white;
+    background-color: #796173;
+    text-decoration: none;
 }
 
 .bm-burger-button {
     position: fixed;
     width: 36px;
     height: 30px;
-    left: 36px;
-    top: 36px;
+    right: 36px;
+    top: 8px;
 }
 
 .bm-burger-bars {
-    background: #373a47;
+    background: #796173;
 }
 
 .bm-cross-button {
@@ -61,6 +67,10 @@ nav{
     background: #bdc3c7;
 }
 
+.bm-menu-wrap{
+    width: 200px !important;
+    text-align: right;
+}
 .bm-menu {
     background: #424242 ;
     padding: 2.5em 1.5em 0;
@@ -77,4 +87,10 @@ nav{
 
 .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
+}
+
+.btn-new{
+    border-radius: 5px;
+    padding: 10px;
+    background-color: dodgerblue;
 }

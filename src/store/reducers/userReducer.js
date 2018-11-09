@@ -9,7 +9,10 @@ export default function userReducer(state = initialState, action) {
         case 'DELETE_USER':
             return state.filter(user => user._id !== action.user.id);
         case 'FETCH_USER':
-            return action.users;
+            return {
+                ...state,
+                users: action.users
+            };
         default:
             return state;
     }

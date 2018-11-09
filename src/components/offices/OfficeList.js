@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { NavLink } from 'react-router-dom'
-import {fetchAllCalendars} from "../../store/actions/calendarActions";
+import {fetchAllOffices} from "../../store/actions/officeActions";
 import List from "../utils/List";
 
-class CalendarList extends Component{
+class OfficeList extends Component{
     componentDidMount(){
-         this.props.fetchAllCalendars();
+        this.props.fetchAllOffices();
     }
-    CalendarList(){
-        const heads = ['سال', 'ماه', 'شناسه']
-        if(this.props.calendars['calendars'] instanceof Array){
-            return <List items={this.props.calendars['calendars']} heads={heads}/>;
+    OfficeList(){
+        const heads = ['عرض', 'نام', 'شناسه','طول', 'آدرس', 'فقط خواندنی']
+        if(this.props.offices['offices'] instanceof Array){
+            return <List items={this.props.offices['offices']} heads={heads}/>;
         }
     }
     render() {
@@ -19,12 +19,12 @@ class CalendarList extends Component{
             <div className="container">
                 <div className="row">
                     <div className="col-2 mr-md-5">
-                        <NavLink className="btn btn-info" to='/new/calendars'>جدید</NavLink>
+                        <NavLink className="btn btn-info" to='/new/offices'>جدید</NavLink>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-8 mr-md-5">
-                        {this.CalendarList()}
+                        {this.OfficeList()}
                     </div>
                 </div>
 
@@ -35,14 +35,14 @@ class CalendarList extends Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        fetchAllCalendars : () => dispatch(fetchAllCalendars())
+        fetchAllOffices : () => dispatch(fetchAllOffices())
     }
 }
 const mapStateToProps = (state)=>{
     return{
-        calendars :  state.calendars
+        offices :  state.offices
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(CalendarList);
+export default connect(mapStateToProps,mapDispatchToProps)(OfficeList);
 
 

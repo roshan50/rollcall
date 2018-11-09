@@ -13,9 +13,9 @@ class Navbar extends Component {
         return (
             <nav className="nav-wrapper grey darken-3">
                 <div className="container">
-                    <ul className="right">
-                        <li><a href="/" onClick={this.logout.bind(this)}>خروج</a></li>
-                        <li><NavLink to="/change_password">تغییر رمز عبور</NavLink></li>
+                    <ul className="nav right">
+                        <li className="nav-item"><a className="nav-link" href="/" onClick={this.logout.bind(this)}>خروج</a></li>
+                        <li className="nav-item"><NavLink className="nav-link" to="/change_password">تغییر رمز عبور</NavLink></li>
                     </ul>
                 </div>
             </nav>

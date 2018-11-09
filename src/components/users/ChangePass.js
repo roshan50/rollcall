@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Profile extends Component {
+class ChangePass extends Component {
     render() {
         return (
             <div className="col-2 offset-4">
@@ -10,6 +10,6 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+export default ChangePass;
 
 

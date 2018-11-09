@@ -16,14 +16,13 @@ class SignIn extends Component {
         e.preventDefault();
         this.props.login(this.state);
         this.props.history.push('/');
-
-
+        // console.log(this.props);
     }
     render() {
         return (
-            <div className="container">
-                <div className="col-md-4 col-md-offset-4">
-                    <div className="login-box">
+            <div className="container d-flex justify-content-center">
+                <div className="col-md-4">
+                    <div className="login-box bg-light">
                         <div className="login-box-body">
                             <p className="login-box-msg"></p>
 
@@ -34,7 +33,7 @@ class SignIn extends Component {
                                    <input type="text" onChange={this.handleChange} id="username" className='form-control email-validate'/>
                                </div>
 
-                               <div className="input-field ">
+                               <div className="input-field  ">
                                    <label htmlFor="password">رمز عبور</label>
                                    <input type="password" onChange={this.handleChange} id="password" className='form-control field-validate'/>
                                </div>
@@ -55,4 +54,5 @@ const mapDispatchToProps = (dispatch)=>{
         login: (data) => dispatch(login(data)),
     }
 }
+
 export default connect(null,mapDispatchToProps)(SignIn);

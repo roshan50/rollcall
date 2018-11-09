@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 class Sidebar extends Component {
     render() {
         return (
-            <Menu>
+            <Menu right >
                 <NavLink to="/">خانه</NavLink>
                 <NavLink to="/users">کاربران</NavLink>
                 <NavLink to="/calendars">تقویم</NavLink>
