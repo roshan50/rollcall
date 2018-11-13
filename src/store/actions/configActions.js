@@ -1,14 +1,33 @@
 import axios from "axios/index";
+import config from '../../config.js';
 
-export const createConfig = (config) =>{
-    return (dispatch, getState)=>{
-        dispatch({type:'CREATE_CALENDER',config});
+export const updateConfig = (data,id) => {
+    return (dispatch) => {
+        return axios.post(`${config.url}/config/update/${id}`, data)
+            .then(response => {
+                dispatch(updateConfigSuccess(response.data))
+            })
+            .catch(error => {
+                throw(error);
+            });
+    };
+};
+
+export const updateConfigSuccess =  (data) => {
+    return {
+        type: 'UPDATE_CONFIG',
+        config: {
+            _id: data._id,
+            title: data.title,
+            value: data.value,
+            type: data.type,
+        }
     }
-}
+};
 
 export function fetchAllConfigs() {
     return (dispatch) => {
-        return axios.get('http://127.0.0.1:8000/api/configs')
+        return axios.get(`${config.url}/configs`)
             .then(response => {
                 dispatch(fetchConfigs(response.data));
             })

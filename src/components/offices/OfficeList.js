@@ -9,7 +9,7 @@ class OfficeList extends Component{
         this.props.fetchAllOffices();
     }
     OfficeList(){
-        const heads = ['عرض', 'نام', 'شناسه','طول', 'آدرس', 'فقط خواندنی']
+        const heads = ['عرض', 'نام','طول', 'آدرس', 'فقط خواندنی']
         if(this.props.offices['offices'] instanceof Array){
             return <List items={this.props.offices['offices']} heads={heads}/>;
         }
@@ -18,12 +18,12 @@ class OfficeList extends Component{
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-2 mr-md-5">
+                    <div className="col-6 justify-content-start mb-4 mt-4 mb-4 mt-4">
                         <NavLink className="btn btn-info" to='/new/offices'>جدید</NavLink>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-8 mr-md-5">
+                <div className="row d-flex justify-content-center">
+                    <div className="bg-light">
                         {this.OfficeList()}
                     </div>
                 </div>
@@ -40,7 +40,8 @@ const mapDispatchToProps = (dispatch)=>{
 }
 const mapStateToProps = (state)=>{
     return{
-        offices :  state.offices
+        offices :  state.offices,
+        token : state.auth.token
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(OfficeList);

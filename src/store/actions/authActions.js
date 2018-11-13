@@ -1,29 +1,47 @@
 import axios from 'axios';
+import config from '../../config.js';
 
-export function login(data){
+export function login(data,history){
+    // console.log(config.url);
     return dispatch => {
-        return axios.post('http://127.0.0.1:8000/api/login',data)
+        return axios.post(`${config.url}/login`,data)
             .then(response => {
-                dispatch(loginSuccess(response.data));
-                // console.log(response.data);
-                // this.props.history.push("/");
+                if(response.data.msg === "OK"){
+                    dispatch(loginSuccess(response.data,data.username));
+                    // console.log(response.data)
+                    history.push('/');
+                }else{
+                    dispatch(loginFailed(response.data));
+                }
             })
             .catch(error => {
                 throw(error);
             });
     }
 }
-export const loginSuccess =  (data) => {
+export const loginSuccess =  (data,username) => {
+    // localStorage.setItem('isLogIn', true);
+    // localStorage.setItem('username', data.username);
     return {
         type: 'LOGIN',
         data: {
             msg: data.msg,
             token: data.token,
-            username: data.username
+            username: username
+        }
+    }
+};
+export const loginFailed =  (data) => {
+    return {
+        type: 'LOGIN_FAILED',
+        data: {
+            msg: data.msg
         }
     }
 };
 
 export function logout()  {
+    // localStorage.setItem('isLogIn', false);
+    // localStorage.setItem('username', 'No User');
     return {type: 'LOGOUT'}
 };

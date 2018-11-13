@@ -3,6 +3,12 @@ import {connect} from 'react-redux'
 
 class Dashboard extends Component {
     componentDidMount(){
+        // console.log(localStorage.getItem('isLogIn'));
+        // console.log(localStorage.getItem('username'));
+        // if(localStorage.getItem('isLogIn') != 'true'){
+        //     console.log('hi');
+        //     this.props.history.push('/login');
+        // }
     }
 
     render() {

@@ -9,8 +9,8 @@ body {
     background-position: bottom;
     background-color: #d2d6de;
     min-height: 100%;
-    font-family: 'WYekan','Helvetica Neue',Helvetica,Atahoma;
-    font-size: 20px !important;
+    /*font-family: 'WYekan','Helvetica Neue',Helvetica,Atahoma;*/
+    /*font-size: 20px !important;*/
 
 }
 form{
@@ -38,12 +38,14 @@ nav{
     margin-bottom: 10px;
     color: #d1d1d1;
     transition: color 0.2s;
+    padding: 5px 10px;
 }
 
 .bm-item:hover {
     color: white;
     background-color: #796173;
     text-decoration: none;
+    padding: 5px 10px;
 }
 
 .bm-burger-button {
@@ -73,7 +75,7 @@ nav{
 }
 .bm-menu {
     background: #424242 ;
-    padding: 2.5em 1.5em 0;
+    padding: 2em 1em 0;
     font-size: 1.15em;
 }
 
@@ -87,10 +89,17 @@ nav{
 
 .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
+    width: 0 !important;
 }
 
 .btn-new{
     border-radius: 5px;
     padding: 10px;
     background-color: dodgerblue;
+}
+
+.custom-ui{
+    background-color: #d2d6de;
+    padding: 20px;
+    border-radius: 5px;
 }

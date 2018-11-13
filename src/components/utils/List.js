@@ -8,9 +8,9 @@ class List extends Component {
             <table className="table">
                 <ListHead heads={this.props.heads}/>
                 <tbody>
-                    { this.props.items && this.props.items.map(function(item){
+                    { this.props.items && this.props.items.map(function(item,i){
                         return(
-                            <ListRow item={item} key={item.id}/>
+                            <ListRow item={item} i={i} key={item.id}/>
                         );
                     })}
                 </tbody>

@@ -4,7 +4,16 @@ const initialState = {
 const  calendarReducer = (state = initialState, action) =>{
     switch (action.type){
         case 'CREATE_CALENDAR':
-            console.log('created calendar', action.calendar)
+            return {
+            ...state,
+                calendars: action.calendars
+            };
+            break;
+        case 'UPDATE_CALENDAR':
+            return {
+                ...state,
+                calendars: action.calendars
+            };
             break;
         case 'FETCH_CALENDAR':
             return {

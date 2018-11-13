@@ -9,7 +9,7 @@ class ConfigList extends Component{
         this.props.fetchAllConfigs();
     }
     ConfigList(){
-        const heads = ['مقدار', 'عنوان', 'شناسه']
+        const heads = ['مقدار', 'عنوان']
         if(this.props.configs['configs'] instanceof Array){
             return <List items={this.props.configs['configs']} heads={heads}/>;
         }
@@ -17,13 +17,8 @@ class ConfigList extends Component{
     render() {
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col-2 mr-md-5">
-                        <NavLink className="btn btn-info" to='/new/configs'>جدید</NavLink>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-8 mr-md-5">
+                <div className="row d-flex justify-content-center">
+                    <div className="bg-light">
                         {this.ConfigList()}
                     </div>
                 </div>
@@ -40,7 +35,8 @@ const mapDispatchToProps = (dispatch)=>{
 }
 const mapStateToProps = (state)=>{
     return{
-        configs :  state.configs
+        configs :  state.configs,
+        token : state.auth.token
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ConfigList);

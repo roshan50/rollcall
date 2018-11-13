@@ -9,7 +9,7 @@ class CalendarList extends Component{
          this.props.fetchAllCalendars();
     }
     CalendarList(){
-        const heads = ['سال', 'ماه', 'شناسه']
+        const heads = ['سال', 'ماه']
         if(this.props.calendars['calendars'] instanceof Array){
             return <List items={this.props.calendars['calendars']} heads={heads}/>;
         }
@@ -18,12 +18,12 @@ class CalendarList extends Component{
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-2 mr-md-5">
+                    <div className="col-6 justify-content-start mb-4 mt-4 mb-4 mt-4">
                         <NavLink className="btn btn-info" to='/new/calendars'>جدید</NavLink>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-8 mr-md-5">
+                <div className="row d-flex justify-content-center">
+                    <div className="bg-light">
                         {this.CalendarList()}
                     </div>
                 </div>
@@ -40,7 +40,8 @@ const mapDispatchToProps = (dispatch)=>{
 }
 const mapStateToProps = (state)=>{
     return{
-        calendars :  state.calendars
+        calendars :  state.calendars,
+        token : state.auth.token
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CalendarList);

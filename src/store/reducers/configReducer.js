@@ -3,8 +3,11 @@ const initialState = {
 };
 const  configReducer = (state = initialState, action) =>{
     switch (action.type){
-        case 'CREATE_CONFIG':
-            console.log('created config', action.config)
+        case 'UPDATE_CONFIG':
+            return {
+                ...state,
+                config: action.config
+            };
             break;
         case 'FETCH_CONFIG':
             return {

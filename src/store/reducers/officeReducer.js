@@ -3,8 +3,11 @@ const initialState = {
 };
 const  officeReducer = (state = initialState, action) =>{
     switch (action.type){
-        case 'CREATE_OFFICE':
-            console.log('created office', action.office)
+        case 'ADD_OFFICE':
+            return {
+                ...state,
+                offices: action.offices
+            };
             break;
         case 'FETCH_OFFICE':
             return {

@@ -1,10 +1,11 @@
 ﻿import React, {Component} from 'react';
 import {login} from "../../store/actions/authActions";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
 class SignIn extends Component {
     state={
-        username : '',
+        name : '',
         password : '',
     }
     handleChange = (e) => {
@@ -14,9 +15,7 @@ class SignIn extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.login(this.state);
-        this.props.history.push('/');
-        // console.log(this.props);
+        this.props.login(this.state,this.props.history);
     }
     render() {
         return (
@@ -24,18 +23,17 @@ class SignIn extends Component {
                 <div className="col-md-4">
                     <div className="login-box bg-light">
                         <div className="login-box-body">
-                            <p className="login-box-msg"></p>
-
                            <form action="" onSubmit={this.handleSubmit} className="white form-validate">
+                               <p className="login-box-msg text-danger">{this.props.msg}</p>
                                <h5 className="grey-text text-darken-3">ورود</h5>
                                <div className="input-field ">
-                                   <label htmlFor="username">نام کاربری</label>
-                                   <input type="text" onChange={this.handleChange} id="username" className='form-control email-validate'/>
+                                   <label htmlFor="name">نام کاربری</label>
+                                   <input type="text" onChange={this.handleChange} id="name" className='form-control email-validate' required/>
                                </div>
 
                                <div className="input-field  ">
                                    <label htmlFor="password">رمز عبور</label>
-                                   <input type="password" onChange={this.handleChange} id="password" className='form-control field-validate'/>
+                                   <input type="password" onChange={this.handleChange} id="password" className='form-control field-validate' required/>
                                </div>
 
                                <div className="input-filed">
@@ -51,8 +49,13 @@ class SignIn extends Component {
 }
 const mapDispatchToProps = (dispatch)=>{
     return{
-        login: (data) => dispatch(login(data)),
+        login: (data,history) => dispatch(login(data,history)),
+    }
+}
+const mapStateToProps = (state)=>{
+    return{
+        msg : state.auth.msg,
     }
 }
 
-export default connect(null,mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn);

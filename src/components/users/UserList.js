@@ -6,30 +6,34 @@ import List from "../utils/List";
 
 class UserList extends Component{
     componentDidMount(){
-        this.props.fetchAllUsers();
+        this.props.fetchAllUsers(this.props.token);
     }
     UserList(){
-        const heads = ['ایمیل', 'نام', 'شناسه','نوع', 'مدیر ارشد', 'مدیر مستقیم']
+        const heads = ['نام', 'ایمیل','نوع', 'مدیر ارشد', 'مدیر مستقیم']
         if(this.props.users['users'] instanceof Array){
-            console.log('user list')
-            console.log(this.props.users['users'])
-            return <List items={this.props.users['users']} heads={heads}/>;
+            var users = this.props.users['users'];
+            users.map(function(obj,i) {
+                delete obj['profile']
+                delete obj['setting']
+                delete obj['created_at']
+                delete obj['updated_at']
+                delete obj['deleted_at']
+                return obj;
+            });
+            // console.log(users);
+            return <List items={users} heads={heads}/>;
         }
     }
     render() {
-        console.log('render')
-        console.log(this.UserList())
-        console.log('render prop')
-        console.log(this.props.users)
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-2 mr-md-5">
+                    <div className="col-6 justify-content-start mb-4 mt-4 mb-4 mt-4">
                         <NavLink className="btn btn-info" to='/new/users'>جدید</NavLink>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-8 mr-md-5">
+                <div className="row d-flex justify-content-center">
+                    <div className="bg-light">
                         {this.UserList()}
                     </div>
                 </div>
@@ -41,12 +45,13 @@ class UserList extends Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        fetchAllUsers : () => dispatch(fetchAllUsers())
+        fetchAllUsers : (token) => dispatch(fetchAllUsers(token))
     }
 }
 const mapStateToProps = (state)=>{
     return{
-        users :  state.users
+        users : state.users,
+        token : state.auth.token
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(UserList);

@@ -5,6 +5,7 @@ class ListHead extends Component {
         return (
             <thead>
                 <tr styles="background-color:red;">
+                    <th>ردیف</th>
                     { this.props.heads && this.props.heads.map((head,i) => {
                         return <th scope="col" key={i}>{head}</th>
                     })}
