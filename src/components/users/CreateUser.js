@@ -61,6 +61,7 @@ class CreateUser extends React.Component {
     }
 
     render() {
+        console.log(this.props.msg)
         return (
             <div className="container d-flex justify-content-center">
                 <form onSubmit={ this.handleSubmit } className="bg-light col-md-6">
@@ -90,62 +91,62 @@ class CreateUser extends React.Component {
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="type" className="col-md-3 text-right">نوع<span className="text-danger">*</span></label>
-                        {/*<select*/}
-                            {/*name="type"*/}
-                            {/*className="form-control col-md-8"*/}
-                            {/*onChange={ this.handleInputChange }*/}
-                            {/*value={ this.state.type }*/}
-                        {/*>*/}
-                            {/*<option value="normal">کاربر معمولی</option>*/}
-                            {/*<option value="chief">مدیر ارشد</option>*/}
-                            {/*<option value="direct">مدیر مستقیم</option>*/}
-                        {/*</select>*/}
-                        <input
-                            type="text"
+                        <select
                             name="type"
-                            required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
                             value={ this.state.type }
-                        />
+                        >
+                            <option value="normal">کاربر معمولی</option>
+                            <option value="chief">مدیر ارشد</option>
+                            <option value="direct">مدیر مستقیم</option>
+                        </select>
+                        {/*<input*/}
+                            {/*type="text"*/}
+                            {/*// name="type"*/}
+                            {/*// required="required"*/}
+                            {/*className="form-control col-md-8"*/}
+                            {/*// onChange={ this.handleInputChange }*/}
+                            {/*// value={ this.state.type }*/}
+                        {/*/>*/}
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="chief" className="col-md-3 text-right">مدیر ارشد<span className="text-danger">*</span></label>
-                        {/*<select*/}
-                            {/*// name="chief_id"*/}
-                            {/*className="form-control col-md-8"*/}
-                            {/*onChange={ this.handleInputChange }*/}
-                            {/*// value={ this.state.chief_id }*/}
-                        {/*>*/}
-                            {/*{this.chief_options()}*/}
-                        {/*</select>*/}
-                        <input
-                            type="text"
+                        <select
                             name="chief_id"
-                            required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
                             value={ this.state.chief_id }
-                        />
+                        >
+                            {this.chief_options()}
+                        </select>
+                        {/*<input*/}
+                            {/*type="text"*/}
+                            {/*// name="chief_id"*/}
+                            {/*// required="required"*/}
+                            {/*className="form-control col-md-8"*/}
+                            {/*// onChange={ this.handleInputChange }*/}
+                            {/*// value={ this.state.chief_id }*/}
+                        {/*/>*/}
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="direct" className="col-md-3 text-right">مدیر مستقیم<span className="text-danger">*</span></label>
-                        {/*<select*/}
-                            {/*name="direct_id"*/}
-                            {/*className="form-control col-md-8"*/}
-                            {/*onChange={ this.handleInputChange }*/}
-                            {/*value={ this.state.direct_id }*/}
-                        {/*>*/}
-                            {/*{this.direct_options()}*/}
-                        {/*</select>*/}
-                        <input
-                            type="text"
+                        <select
                             name="direct_id"
-                            required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
                             value={ this.state.direct_id }
-                        />
+                        >
+                            {this.direct_options()}
+                        </select>
+                        {/*<input*/}
+                            {/*type="text"*/}
+                            {/*// name="direct_id"*/}
+                            {/*// required="required"*/}
+                            {/*className="form-control col-md-8"*/}
+                            {/*// onChange={ this.handleInputChange }*/}
+                            {/*// value={ this.state.direct_id }*/}
+                        {/*/>*/}
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary col-md-3">ذخیره</button>
@@ -169,6 +170,7 @@ const mapStateToProps = (state)=>{
         token: state.auth.token,
         chiefs: state.users.chiefs,
         directs: state.users.directs,
+        msg: state.users.add_msg
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CreateUser);

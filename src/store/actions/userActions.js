@@ -7,6 +7,7 @@ export const createUser = (data,token) => {
         return axios.post(`${config.url}/${token}/user/add`, data)
             .then(response => {
                 dispatch(createUserSuccess(response.data))
+                console.log(response.data.msg,data)
             })
             .catch(error => {
                 throw(error);
@@ -14,10 +15,11 @@ export const createUser = (data,token) => {
     };
 };
 
-export const createUserSuccess =  (data) => {
+export const createUserSuccess =  (msg,user) => {
     return {
         type: 'ADD_USER',
-        user : data
+        user : user,
+        add_msg : msg
     }
 };
 
@@ -46,8 +48,6 @@ export function fetchOneUser(id,token) {
         return axios.get(`${config.url}/${token}/user/show/${id}`)
             .then(response => {
                 dispatch(fetchUserSuccess(response.data));
-                console.log('fetch one user')
-                console.log(response.data.user);
             })
             .catch(error => {
                 throw(error);
@@ -61,6 +61,29 @@ export const fetchUserSuccess = (user) => {
         user
     }
 };
+
+export const deleteUser = (id,url,token) => {
+    return (dispatch,getState) => {
+        var users = getState().users.users;
+        dispatch(deleteUserSuccess('msg',users,id))
+        return axios.get(`${config.url}/${token}/${url}/delete/${id}`)
+            .then(response => {
+                dispatch(deleteUserSuccess(response.data,users,id))
+                console.log(response.data);
+            })
+            .catch(error => {
+                throw(error);
+            });
+    };
+};
+export const deleteUserSuccess = (data,users,id) => {
+    return {
+        type: 'DELETE_USER',
+        delete_msg: data.msg,
+        users : users,
+        id : id
+    }
+}
 
 export function updateUser(data,id,token) {
     return (dispatch) => {

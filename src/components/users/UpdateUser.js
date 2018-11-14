@@ -13,17 +13,12 @@ class UpdateUser extends React.Component {
 
     constructor(props){
         super(props);
-        // this.render = this.render.bind(this);
         var url = window.location.href;
         this.id  = url.substr(url.lastIndexOf('/')+1 );
-        // this.adr = url.substring(0, url.length - 1);
     }
 
-    componentDidMount(){  console.log(this.id);
+    componentDidMount(){
         this.props.fetchOneUser(this.id,this.props.token);
-        console.log('props user')
-        console.log(this.props.user)
-        // console.log(this.props.user.name)
         this.props.fetchUserTypes('direct',this.props.token);
         this.props.fetchUserTypes('direct',this.props.token);
     }
@@ -73,17 +68,19 @@ class UpdateUser extends React.Component {
     }
 
     get_user(){
-        this.name = '';
-        this.email = '';
+        var user = [];
+        user.name = '';
         if(this.props.user){
-            this.name = this.props.user.name;
-            this.email = this.props.user.email;
+            user.name = this.props.user.name;
+            user.email = this.props.user.email;
+            user.type = this.props.user.type;
+            user.chief_id = this.props.user.chief_id;
+            user.direct_id = this.props.user.direct_id;
         }
+        return user;
     }
 
     render() {
-        console.log('render');
-        console.log(this.props.user);
         return (
             <div className="container d-flex justify-content-center">
                 <form onSubmit={ this.handleSubmit } className="bg-light col-md-6">
@@ -97,7 +94,7 @@ class UpdateUser extends React.Component {
                             required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.name }
+                            value={ this.get_user().name }
                         />
                     </div>
                     <div className="input-field d-flex mb-3">
@@ -108,67 +105,44 @@ class UpdateUser extends React.Component {
                             required="required"
                             className="form-control email-validate col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.email }
+                            value={ this.get_user().email }
                         />
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="type" className="col-md-3 text-right">نوع<span className="text-danger">*</span></label>
-                        {/*<select*/}
-                        {/*name="type"*/}
-                        {/*className="form-control col-md-8"*/}
-                        {/*onChange={ this.handleInputChange }*/}
-                        {/*value={ this.state.type }*/}
-                        {/*>*/}
-                        {/*<option value="normal">کاربر معمولی</option>*/}
-                        {/*<option value="chief">مدیر ارشد</option>*/}
-                        {/*<option value="direct">مدیر مستقیم</option>*/}
-                        {/*</select>*/}
-                        <input
-                            type="text"
-                            name="type"
-                            required="required"
-                            className="form-control col-md-8"
-                            onChange={ this.handleInputChange }
-                            value={ this.state.type }
-                        />
+                        <select
+                        name="type"
+                        className="form-control col-md-8"
+                        onChange={ this.handleInputChange }
+                        value={ this.get_user().type }
+                        >
+                        <option value="normal">کاربر معمولی</option>
+                        <option value="chief">مدیر ارشد</option>
+                        <option value="direct">مدیر مستقیم</option>
+                        </select>
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="chief" className="col-md-3 text-right">مدیر ارشد<span className="text-danger">*</span></label>
-                        {/*<select*/}
-                        {/*// name="chief_id"*/}
-                        {/*className="form-control col-md-8"*/}
-                        {/*onChange={ this.handleInputChange }*/}
-                        {/*// value={ this.state.chief_id }*/}
-                        {/*>*/}
-                        {/*{this.chief_options()}*/}
-                        {/*</select>*/}
-                        <input
-                            type="text"
+                        <select
                             name="chief_id"
-                            required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.state.chief_id }
-                        />
+                            value={ this.get_user().chief_id  }
+                        >
+                            {this.chief_options()}
+                        </select>
+
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="direct" className="col-md-3 text-right">مدیر مستقیم<span className="text-danger">*</span></label>
-                        {/*<select*/}
-                        {/*name="direct_id"*/}
-                        {/*className="form-control col-md-8"*/}
-                        {/*onChange={ this.handleInputChange }*/}
-                        {/*value={ this.state.direct_id }*/}
-                        {/*>*/}
-                        {/*{this.direct_options()}*/}
-                        {/*</select>*/}
-                        <input
-                            type="text"
+                        <select
                             name="direct_id"
-                            required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.state.direct_id }
-                        />
+                            value={ this.get_user().direct_id }
+                        >
+                            {this.direct_options()}
+                        </select>
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary col-md-3">ذخیره</button>
@@ -193,7 +167,7 @@ const mapStateToProps = (state)=>{
         token: state.auth.token,
         chiefs: state.users.chiefs,
         directs: state.users.directs,
-        user : state.user
+        user : state.users.user.user
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(UpdateUser);

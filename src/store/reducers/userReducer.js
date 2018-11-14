@@ -3,10 +3,9 @@ const initialState = {
     user : []
 };
 export default function userReducer(state = initialState, action) {
-    // console.log(action)
     switch (action.type) {
         case 'ADD_USER':
-            return [...state, action.user];
+            return [...state, action.user, action.add_msg];
             break;
         case 'FETCH_USER':
             return {
@@ -17,6 +16,13 @@ export default function userReducer(state = initialState, action) {
             return {
                 ...state,
                 user: action.user
+            };
+        case 'DELETE_USER':
+            return {
+                ...state,
+                users: action.users.filter(user =>
+                    user.id !== action.id
+                )
             };
         case 'UPDATE_USER':
             return {

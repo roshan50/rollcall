@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import MaterialIcon from 'material-icons-react';
 import Tooltip from '@material-ui/core/Tooltip';
-import {deleteRecord} from "../../store/actions/listActions";
+// import {deleteRecord} from "../../store/actions/listActions";
+import {deleteUser} from "../../store/actions/userActions";
 import {connect} from "react-redux";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
@@ -46,7 +47,7 @@ class ListRow extends Component {
     }
 
     handleClickDelete(id,adr){
-        this.props.deleteRecord(id,adr,this.props.token)
+        this.props.deleteUser(id,adr,this.props.token)
     }
 
     delete_td(){
@@ -77,7 +78,7 @@ class ListRow extends Component {
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        deleteRecord : (id,url,token) => dispatch(deleteRecord(id,url,token))
+        deleteUser : (id,url,token) => dispatch(deleteUser(id,url,token))
     }
 }
 const mapStateToProps = (state)=>{
