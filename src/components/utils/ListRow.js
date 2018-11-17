@@ -19,7 +19,16 @@ class ListRow extends Component {
 
     getItems(obj){
         var items = Object.keys(obj).map(function(key,i) {
-            if(key !== 'id'){
+            if(key === 'chief'){
+                if(obj[key] !== null)
+                    return <td key={i}>{obj[key].name}</td>
+                else return <td></td>
+            }
+            else if(key === 'direct'){
+                if(obj[key] !== null)
+                    return <td key={i}>{obj[key].name}</td>
+                else return <td></td>
+            }else if(key !== 'id'){
                 return <td key={i}>{obj[key]}</td>
             }
             return '';

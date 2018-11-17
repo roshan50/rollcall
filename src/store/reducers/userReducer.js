@@ -5,8 +5,16 @@ const initialState = {
 export default function userReducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_USER':
-            return [...state, action.user, action.add_msg];
-            break;
+            return {
+                ...state,
+                user:action.user,
+                add_msg: action.add_msg
+            };
+        case 'ADD_USER_FAILED':
+            return {
+                ...state,
+                add_msg: action.add_msg
+            };
         case 'FETCH_USER':
             return {
                 ...state,

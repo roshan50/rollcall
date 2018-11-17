@@ -6,11 +6,13 @@ export const createUser = (data,token) => {
     return (dispatch) => {
         return axios.post(`${config.url}/${token}/user/add`, data)
             .then(response => {
-                dispatch(createUserSuccess(response.data))
-                console.log(response.data.msg,data)
+                dispatch(createUserSuccess(response.data.msg,data))
+                console.log(response.data.msg)
             })
             .catch(error => {
-                throw(error);
+                // throw(error);
+                console.log(error.response.data.desc)
+                dispatch(createUserFailed(error.response.data.msg))
             });
     };
 };
@@ -22,13 +24,20 @@ export const createUserSuccess =  (msg,user) => {
         add_msg : msg
     }
 };
+export const createUserFailed =  (msg) => {
+    return {
+        type: 'ADD_USER_FAILED',
+        add_msg : msg
+    }
+};
 
 export function fetchAllUsers(token) {
     return (dispatch) => {
         return axios.get(`${config.url}/${token}/user/list`)
             .then(response => {
-                dispatch(fetchUsers(response.data.users));
                 // console.log(response.data.users);
+                dispatch(fetchUsers(response.data.users));
+
             })
             .catch(error => {
                 throw(error);

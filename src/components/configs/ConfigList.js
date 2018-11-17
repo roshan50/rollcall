@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import { NavLink } from 'react-router-dom'
 import {fetchAllConfigs} from "../../store/actions/configActions";
 import List from "../utils/List";
 

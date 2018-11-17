@@ -10,12 +10,12 @@ export function login(data,history){
                     dispatch(loginSuccess(response.data,data.username));
                     // console.log(response.data)
                     history.push('/');
-                }else{
-                    dispatch(loginFailed(response.data));
                 }
             })
             .catch(error => {
-                throw(error);
+                // throw(error);
+                console.log(error.response);
+                dispatch(loginFailed(error.response.data));
             });
     }
 }

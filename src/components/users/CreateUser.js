@@ -6,13 +6,14 @@ class CreateUser extends React.Component {
     state = {
         name: '',
         email: '',
-        type: '',
+        type: 'normal',
         chief_id: '',
-        direct_id: ''
+        direct_id: '',
+        msg: ''
     };
 
     componentDidMount(){
-        this.props.fetchUserTypes('direct',this.props.token);
+        this.props.fetchUserTypes('chief',this.props.token);
         this.props.fetchUserTypes('direct',this.props.token);
     }
 
@@ -34,7 +35,7 @@ class CreateUser extends React.Component {
         this.setState({
             name: '',
             email: '',
-            type: '',
+            type: 'normal',
             chief_id: '',
             direct_id: ''
         });
@@ -61,18 +62,18 @@ class CreateUser extends React.Component {
     }
 
     render() {
-        console.log(this.props.msg)
         return (
             <div className="container d-flex justify-content-center">
                 <form onSubmit={ this.handleSubmit } className="bg-light col-md-6">
-                    <p className="login-box-msg">{this.props.msg}</p>
                     <h5 className="grey-text text-darken-3">اضافه کردن کاربر</h5>
+                    <p className="login-box-msg text-danger">{this.props.msg}</p>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="name" className="col-md-3 text-right">نام<span className="text-danger">*</span></label>
                         <input
                             type="text"
                             name="name"
                             required="required"
+                            minLength="5"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
                             value={ this.state.name }
@@ -97,18 +98,10 @@ class CreateUser extends React.Component {
                             onChange={ this.handleInputChange }
                             value={ this.state.type }
                         >
-                            <option value="normal">کاربر معمولی</option>
+                            <option value="normal" defaultValue >کاربر معمولی</option>
                             <option value="chief">مدیر ارشد</option>
                             <option value="direct">مدیر مستقیم</option>
                         </select>
-                        {/*<input*/}
-                            {/*type="text"*/}
-                            {/*// name="type"*/}
-                            {/*// required="required"*/}
-                            {/*className="form-control col-md-8"*/}
-                            {/*// onChange={ this.handleInputChange }*/}
-                            {/*// value={ this.state.type }*/}
-                        {/*/>*/}
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="chief" className="col-md-3 text-right">مدیر ارشد<span className="text-danger">*</span></label>
@@ -118,16 +111,9 @@ class CreateUser extends React.Component {
                             onChange={ this.handleInputChange }
                             value={ this.state.chief_id }
                         >
+                            <option value="">انتخاب کنید</option>
                             {this.chief_options()}
                         </select>
-                        {/*<input*/}
-                            {/*type="text"*/}
-                            {/*// name="chief_id"*/}
-                            {/*// required="required"*/}
-                            {/*className="form-control col-md-8"*/}
-                            {/*// onChange={ this.handleInputChange }*/}
-                            {/*// value={ this.state.chief_id }*/}
-                        {/*/>*/}
                     </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="direct" className="col-md-3 text-right">مدیر مستقیم<span className="text-danger">*</span></label>
@@ -137,16 +123,9 @@ class CreateUser extends React.Component {
                             onChange={ this.handleInputChange }
                             value={ this.state.direct_id }
                         >
+                            <option value="">انتخاب کنید</option>
                             {this.direct_options()}
                         </select>
-                        {/*<input*/}
-                            {/*type="text"*/}
-                            {/*// name="direct_id"*/}
-                            {/*// required="required"*/}
-                            {/*className="form-control col-md-8"*/}
-                            {/*// onChange={ this.handleInputChange }*/}
-                            {/*// value={ this.state.direct_id }*/}
-                        {/*/>*/}
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary col-md-3">ذخیره</button>

@@ -18,6 +18,8 @@ class UserList extends Component{
                 delete obj['created_at']
                 delete obj['updated_at']
                 delete obj['deleted_at']
+                delete obj['chief_id']
+                delete obj['direct_id']
                 return obj;
             });
             // console.log(users);
