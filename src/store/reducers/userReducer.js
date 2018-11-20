@@ -35,7 +35,13 @@ export default function userReducer(state = initialState, action) {
         case 'UPDATE_USER':
             return {
                 ...state,
-                users: action.users
+                user: action.user,
+                update_msg: action.update_msg
+            };
+        case 'UPDATE_USER_FAILED':
+            return {
+                ...state,
+                update_msg: action.update_msg
             };
         case 'FETCH_USER_CHIEF':
             return {

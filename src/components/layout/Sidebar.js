@@ -12,7 +12,7 @@ class Sidebar extends Component {
                 <NavLink to="/calendars"><MaterialIcon icon="list" color='#d2d6de' /><span className="mr-1">تقویم</span></NavLink>
                 <NavLink to="/timesheet"><MaterialIcon icon="list" color='#d2d6de' /><span className="mr-1">جدول زمانی</span></NavLink>
                 <NavLink to="/offices"><MaterialIcon icon="list" color='#d2d6de' /><span className="mr-1">دفاتر کاری</span></NavLink>
-                <NavLink to="/config"><MaterialIcon icon="settings" color='#d2d6de' /><span className="mr-1">تنظیمات</span></NavLink>
+                <NavLink to="/configs"><MaterialIcon icon="settings" color='#d2d6de' /><span className="mr-1">تنظیمات</span></NavLink>
             </Menu>
         );
     }

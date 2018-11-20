@@ -13,14 +13,14 @@ import UpdateUser from "./components/users/UpdateUser";
 import ChangePass from "./components/users/ChangePass";
 import CalendarList from "./components/calendars/CalendarList";
 import CreateCalendar from "./components/calendars/CreateCalendar";
+import UpdateCalendar from "./components/calendars/UpdateCalendar";
 import OfficeList from "./components/offices/OfficeList";
 import ConfigList from "./components/configs/ConfigList";
 import Timesheet from "./components/timesheet/Timesheet";
 import UpdateConfig from "./components/configs/UpdateConfig";
 import CreateOffice from "./components/offices/CreateOffice";
+import UpdateOffice from "./components/offices/UpdateOffice";
 import Page404 from "./components/layout/Page404";
-
-
 
 class App extends Component {
     render() {
@@ -35,8 +35,6 @@ class App extends Component {
                 <div className="App">
                     { this.props.auth ? <Navbar/> : ''}
                     { this.props.auth ? <Sidebar/> : ''}
-                    {/*<Navbar/>*/}
-                    {/*<Sidebar/>*/}
                     <Switch>
                         <Route path="/login" component={SignIn} />
                         <PrivateRoute path="/change_password" component={ChangePass} />
@@ -45,34 +43,16 @@ class App extends Component {
                         <PrivateRoute path="/edit/user/:id" component={UpdateUser} />
                         <PrivateRoute path="/calendars" component={CalendarList} />
                         <PrivateRoute path="/new/calendars" component={CreateCalendar} />
-                        <PrivateRoute path="/edit/calendar/:id" component={CreateCalendar} />
+                        <PrivateRoute path="/edit/calendar/:id" component={UpdateCalendar} />
                         <PrivateRoute path="/timesheet" component={Timesheet} />
                         <PrivateRoute path="/offices" component={OfficeList} />
                         <PrivateRoute path="/new/offices" component={CreateOffice} />
-                        <PrivateRoute path="/edit/office/:id" component={CreateOffice} />
-                        <PrivateRoute path="/config" component={ConfigList} />
+                        <PrivateRoute path="/edit/office/:id" component={UpdateOffice} />
+                        <PrivateRoute path="/configs" component={ConfigList} />
                         <PrivateRoute path="/edit/config/:id" component={UpdateConfig} />
                         <PrivateRoute path='/' component={Dashboard} />
                         <PrivateRoute component={Page404} />
                     </Switch>
-                    {/*<Switch>*/}
-                        {/*<Route path="/login" component={SignIn} />*/}
-                        {/*<Route path="/change_password" component={ChangePass} />*/}
-                        {/*<Route path="/users" component={UserList} />*/}
-                        {/*<Route path="/new/users" component={CreateUser} />*/}
-                        {/*<Route path="/edit/users/:id" component={CreateUser} />*/}
-                        {/*<Route path="/calendars" component={CalendarList} />*/}
-                        {/*<Route path="/new/calendars" component={CreateCalendar} />*/}
-                        {/*<Route path="/edit/calendars/:id" component={CreateCalendar} />*/}
-                        {/*<Route path="/timesheet" component={Timesheet} />*/}
-                        {/*<Route path="/offices" component={OfficeList} />*/}
-                        {/*<Route path="/new/offices" component={CreateOffice} />*/}
-                        {/*<Route path="/edit/offices/:id" component={CreateOffice} />*/}
-                        {/*<Route path="/config" component={ConfigList} />*/}
-                        {/*<Route path="/edit/config/:id" component={UpdateConfig} />*/}
-                        {/*<Route path='/' component={Dashboard} />*/}
-                        {/*<Route component={Page404} />*/}
-                    {/*</Switch>*/}
                 </div>
             </BrowserRouter>
         );

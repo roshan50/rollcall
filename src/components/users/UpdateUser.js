@@ -1,6 +1,8 @@
 import React from 'react';
-import {updateUser,fetchUserTypes,fetchOneUser} from "../../store/actions/userActions";
+import {updateUser, fetchUserTypes} from "../../store/actions/userActions";
 import {connect} from "react-redux";
+import axios from "axios/index";
+import config from "../../config";
 
 class UpdateUser extends React.Component {
     state = {
@@ -11,15 +13,25 @@ class UpdateUser extends React.Component {
         direct_id: ''
     };
 
-    constructor(props){
-        super(props);
-        var url = window.location.href;
-        this.id  = url.substr(url.lastIndexOf('/')+1 );
-    }
-
     componentDidMount(){
-        this.props.fetchOneUser(this.id,this.props.token);
-        this.props.fetchUserTypes('direct',this.props.token);
+        var id = this.props.match.params.id;
+        axios.get(`${config.url}/${this.props.token}/user/show/${id}`)
+            .then(response => {
+                if(response.data.user) {
+                    this.setState({
+                        name: response.data.user.name,
+                        email: response.data.user.email,
+                        type: response.data.user.type,
+                        chief_id: response.data.user.chief_id,
+                        direct_id: response.data.user.direct_id
+                    });
+                }
+            })
+            .catch(error => {
+                throw(error);
+            });
+
+        this.props.fetchUserTypes('chief',this.props.token);
         this.props.fetchUserTypes('direct',this.props.token);
     }
 
@@ -31,20 +43,10 @@ class UpdateUser extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        var id = this.props.match.params.id;
         if (this.state.name.trim() && this.state.email.trim()) {
-            this.props.updateUser(this.state,this.id,this.props.token);
-            // this.handleReset();
+            this.props.updateUser(this.state,id,this.props.token);
         }
-    };
-
-    handleReset = () => {
-        this.setState({
-            name: '',
-            email: '',
-            type: '',
-            chief_id: '',
-            direct_id: ''
-        });
     };
 
     chief_options(){
@@ -67,25 +69,12 @@ class UpdateUser extends React.Component {
         return options;
     }
 
-    get_user(){
-        var user = [];
-        user.name = '';
-        if(this.props.user){
-            user.name = this.props.user.name;
-            user.email = this.props.user.email;
-            user.type = this.props.user.type;
-            user.chief_id = this.props.user.chief_id;
-            user.direct_id = this.props.user.direct_id;
-        }
-        return user;
-    }
-
     render() {
         return (
             <div className="container d-flex justify-content-center">
                 <form onSubmit={ this.handleSubmit } className="bg-light col-md-6">
-                    <p className="login-box-msg">{this.props.msg}</p>
-                    <h5 className="grey-text text-darken-3">اضافه کردن کاربر</h5>
+                    <h5 className="grey-text text-darken-3">ویرایش کاربر</h5>
+                    <p className="text-danger">{this.props.msg}</p>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="name" className="col-md-3 text-right">نام<span className="text-danger">*</span></label>
                         <input
@@ -94,7 +83,7 @@ class UpdateUser extends React.Component {
                             required="required"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.get_user().name }
+                            value={ this.state.name}
                         />
                     </div>
                     <div className="input-field d-flex mb-3">
@@ -105,7 +94,7 @@ class UpdateUser extends React.Component {
                             required="required"
                             className="form-control email-validate col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.get_user().email }
+                            value={ this.state.email }
                         />
                     </div>
                     <div className="input-field d-flex mb-3">
@@ -114,7 +103,7 @@ class UpdateUser extends React.Component {
                         name="type"
                         className="form-control col-md-8"
                         onChange={ this.handleInputChange }
-                        value={ this.get_user().type }
+                        value={ this.state.type }
                         >
                         <option value="normal">کاربر معمولی</option>
                         <option value="chief">مدیر ارشد</option>
@@ -127,8 +116,9 @@ class UpdateUser extends React.Component {
                             name="chief_id"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.get_user().chief_id  }
+                            value={ this.state.chief_id  }
                         >
+                            <option value="">انتخاب کنید</option>
                             {this.chief_options()}
                         </select>
 
@@ -139,16 +129,14 @@ class UpdateUser extends React.Component {
                             name="direct_id"
                             className="form-control col-md-8"
                             onChange={ this.handleInputChange }
-                            value={ this.get_user().direct_id }
+                            value={ this.state.direct_id }
                         >
+                            <option value="">انتخاب کنید</option>
                             {this.direct_options()}
                         </select>
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary col-md-3">ذخیره</button>
-                        <button type="button" className="btn btn-warning col-md-3 mr-2" onClick={ this.handleReset }>
-                            پاک کردن
-                        </button>
                     </div>
                 </form>
             </div>
@@ -157,7 +145,6 @@ class UpdateUser extends React.Component {
 }
 const mapDispatchToProps = (dispatch)=>{
     return{
-        fetchOneUser : (id,token) => dispatch(fetchOneUser(id,token)),
         fetchUserTypes : (type,token) => dispatch(fetchUserTypes(type,token)),
         updateUser : (data,id,token) => dispatch(updateUser(data,id,token))
     }
@@ -167,7 +154,7 @@ const mapStateToProps = (state)=>{
         token: state.auth.token,
         chiefs: state.users.chiefs,
         directs: state.users.directs,
-        user : state.users.user.user
+        msg: state.users.update_msg,
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(UpdateUser);

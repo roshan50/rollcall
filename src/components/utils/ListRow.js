@@ -4,6 +4,8 @@ import MaterialIcon from 'material-icons-react';
 import Tooltip from '@material-ui/core/Tooltip';
 // import {deleteRecord} from "../../store/actions/listActions";
 import {deleteUser} from "../../store/actions/userActions";
+import {deleteCalendar} from "../../store/actions/calendarActions";
+import {deleteOffice} from "../../store/actions/officeActions";
 import {connect} from "react-redux";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
@@ -56,7 +58,20 @@ class ListRow extends Component {
     }
 
     handleClickDelete(id,adr){
-        this.props.deleteUser(id,adr,this.props.token)
+        switch(adr){
+            case 'user':
+                this.props.deleteUser(id,adr,this.props.token);
+                break;
+            case 'calendar':
+                this.props.deleteCalendar(id,adr,this.props.token);
+                break;
+            case 'office':
+                this.props.deleteOffice(id,adr,this.props.token);
+                break;
+            default:
+                console.log(adr)
+        }
+
     }
 
     delete_td(){
@@ -87,7 +102,9 @@ class ListRow extends Component {
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        deleteUser : (id,url,token) => dispatch(deleteUser(id,url,token))
+        deleteUser : (id,url,token) => dispatch(deleteUser(id,url,token)),
+        deleteCalendar : (id,url,token) => dispatch(deleteCalendar(id,url,token)),
+        deleteOffice : (id,url,token) => dispatch(deleteOffice(id,url,token)),
     }
 }
 const mapStateToProps = (state)=>{

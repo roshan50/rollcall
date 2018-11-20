@@ -7,7 +7,7 @@ class CreateOffice extends Component {
         name: '',
         lat: '',
         long: '',
-        address: '',
+        description: '',
         ReadOnly: 1,
     }
     handleChange = (e) => {
@@ -17,14 +17,14 @@ class CreateOffice extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createOffice(this.state)
+        this.props.createOffice(this.state,this.props.token)
     }
     render() {
         return (
             <div className="container d-flex justify-content-center">
                 <form action="" onSubmit={this.handleSubmit}  className="bg-light col-md-6">
-                    <p className="login-box-msg">{this.props.msg}</p>
                     <h5 className="grey-text text-darken-3">اضافه کردن دفتر کار</h5>
+                    <p className="text-danger">{this.props.msg}</p>
 
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="name" className="col-md-3 text-right">نام<span className="text-danger">*</span></label>
@@ -61,10 +61,10 @@ class CreateOffice extends Component {
                         <label htmlFor="address" className="col-md-3 text-right">آدرس<span className="text-danger">*</span></label>
                         <input type="text"
                                onChange={this.handleChange}
-                               id="address"
+                               id="description"
                                className="form-control col-md-8"
                                required="required"
-                               value={this.state.address}
+                               value={this.state.description}
                         />
                     </div>
                     {/*<div className="input-field">*/}
@@ -72,7 +72,7 @@ class CreateOffice extends Component {
                         {/*<label htmlFor="ReadOnly">فقط خواندنی</label>*/}
                     {/*</div>*/}
                     <div className="input-filed">
-                        <button className="btn pink lighten-1 z-depth-0">ذخیره</button>
+                        <button className="btn btn-primary">ذخیره</button>
                     </div>
                 </form>
             </div>
@@ -81,12 +81,13 @@ class CreateOffice extends Component {
 }
 const mapDispatchToProps = (dispatch)=>{
     return{
-        createOffice: (office) => dispatch(createOffice(office))
+        createOffice: (office,token) => dispatch(createOffice(office,token))
     }
 }
 const mapStateToProps = (state)=>{
     return{
-        token : state.auth.token
+        token : state.auth.token,
+        msg : state.offices.add_msg
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CreateOffice);

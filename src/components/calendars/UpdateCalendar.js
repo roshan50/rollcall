@@ -1,14 +1,33 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import {createCalendar} from "../../store/actions/calendarActions";
+import {updateCalendar} from "../../store/actions/calendarActions";
+import axios from "axios/index";
+import config from "../../config";
 
-class CreateCalendar extends Component {
+class UpdateCalendar extends Component {
     state={
         year: '',
         month: '1',
         holidays: '',
         ReadOnly: 1,
     }
+    componentDidMount(){
+        var id = this.props.match.params.id;
+        axios.get(`${config.url}/getCalendar/${id}`)
+            .then(response => {
+                if(response.data.calendar) {
+                    this.setState({
+                        year: response.data.calendar.year,
+                        month: response.data.calendar.month,
+                        holidays: response.data.calendar.holidays.toString(),
+                    });
+                }
+            })
+            .catch(error => {
+                throw(error);
+            });
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.id] : e.target.value
@@ -17,15 +36,15 @@ class CreateCalendar extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         var data = this.state;
-        // data.holidays = data.holidays.split(",");
         data.holidays = data.holidays;
-        this.props.createCalendar(data,this.props.token);
+        var id = this.props.match.params.id;
+        this.props.updateCalendar(data,id,this.props.token);
     }
     render() {
         return (
             <div className="container d-flex justify-content-center">
                 <form action="" onSubmit={this.handleSubmit}  className="bg-light col-md-6">
-                    <h5 className="grey-text text-darken-3">اضافه کردن تاریخ</h5>
+                    <h5 className="grey-text text-darken-3">ویرایش تاریخ</h5>
                     <p className="text-danger">{this.props.msg}</p>
 
                     <div className="input-field d-flex mb-3">
@@ -74,8 +93,8 @@ class CreateCalendar extends Component {
                         />
                     </div>
                     {/*<div className="input-field">*/}
-                        {/*<input type="checkbox" onChange={this.handleChange} id="ReadOnly"/>*/}
-                        {/*<label htmlFor="ReadOnly">فقط خواندنی</label>*/}
+                    {/*<input type="checkbox" onChange={this.handleChange} id="ReadOnly"/>*/}
+                    {/*<label htmlFor="ReadOnly">فقط خواندنی</label>*/}
                     {/*</div>*/}
                     <div className="input-filed">
                         <button className="btn btn-primary">ذخیره</button>
@@ -87,13 +106,13 @@ class CreateCalendar extends Component {
 }
 const mapDispatchToProps = (dispatch)=>{
     return{
-        createCalendar: (calendar,token) => dispatch(createCalendar(calendar,token))
+        updateCalendar: (calendar,id,token) => dispatch(updateCalendar(calendar,id,token))
     }
 }
 const mapStateToProps = (state)=>{
     return{
         token : state.auth.token,
-        msg: state.calendars.add_msg
+        msg: state.calendars.update_msg
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(CreateCalendar);
+export default connect(mapStateToProps,mapDispatchToProps)(UpdateCalendar);

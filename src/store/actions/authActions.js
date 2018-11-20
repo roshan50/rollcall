@@ -2,13 +2,13 @@ import axios from 'axios';
 import config from '../../config.js';
 
 export function login(data,history){
-    // console.log(config.url);
-    return dispatch => {
+    return (dispatch,getState) => {
         return axios.post(`${config.url}/login`,data)
             .then(response => {
                 if(response.data.msg === "OK"){
-                    dispatch(loginSuccess(response.data,data.username));
+                    dispatch(loginSuccess(response.data,data.name));
                     // console.log(response.data)
+                    // console.log(getState())
                     history.push('/');
                 }
             })

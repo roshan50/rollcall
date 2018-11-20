@@ -66,7 +66,7 @@ class CreateUser extends React.Component {
             <div className="container d-flex justify-content-center">
                 <form onSubmit={ this.handleSubmit } className="bg-light col-md-6">
                     <h5 className="grey-text text-darken-3">اضافه کردن کاربر</h5>
-                    <p className="login-box-msg text-danger">{this.props.msg}</p>
+                    <p className="text-danger">{this.props.msg}</p>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="name" className="col-md-3 text-right">نام<span className="text-danger">*</span></label>
                         <input

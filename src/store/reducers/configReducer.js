@@ -6,9 +6,14 @@ const  configReducer = (state = initialState, action) =>{
         case 'UPDATE_CONFIG':
             return {
                 ...state,
-                config: action.config
+                config: action.config,
+                update_msg: action.update_msg
             };
-            break;
+        case 'UPDATE_CONFIG_FAILED':
+            return {
+                ...state,
+                update_msg: action.update_msg
+            };
         case 'FETCH_CONFIG':
             return {
                 ...state,

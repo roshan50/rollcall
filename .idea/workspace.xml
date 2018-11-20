@@ -2,14 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a79bc27-adaa-4f10-ae46-17773447490b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/offices/UpdateOffice.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/SignIn.js" afterPath="$PROJECT_DIR$/src/components/auth/SignIn.js" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/calendars/CalendarList.js" afterPath="$PROJECT_DIR$/src/components/calendars/CalendarList.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/calendars/CreateCalendar.js" afterPath="$PROJECT_DIR$/src/components/calendars/CreateCalendar.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/calendars/EditCalendar.js" afterPath="$PROJECT_DIR$/src/components/calendars/UpdateCalendar.js" />
       <change beforePath="$PROJECT_DIR$/src/components/configs/ConfigList.js" afterPath="$PROJECT_DIR$/src/components/configs/ConfigList.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/configs/UpdateConfig.js" afterPath="$PROJECT_DIR$/src/components/configs/UpdateConfig.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/src/components/dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Sidebar.js" afterPath="$PROJECT_DIR$/src/components/layout/Sidebar.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/offices/CreateOffice.js" afterPath="$PROJECT_DIR$/src/components/offices/CreateOffice.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/offices/OfficeList.js" afterPath="$PROJECT_DIR$/src/components/offices/OfficeList.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/users/ChangePass.js" afterPath="$PROJECT_DIR$/src/components/users/ChangePass.js" />
       <change beforePath="$PROJECT_DIR$/src/components/users/CreateUser.js" afterPath="$PROJECT_DIR$/src/components/users/CreateUser.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/users/UserList.js" afterPath="$PROJECT_DIR$/src/components/users/UserList.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/users/UpdateUser.js" afterPath="$PROJECT_DIR$/src/components/users/UpdateUser.js" />
       <change beforePath="$PROJECT_DIR$/src/components/utils/ListRow.js" afterPath="$PROJECT_DIR$/src/components/utils/ListRow.js" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/authActions.js" afterPath="$PROJECT_DIR$/src/store/actions/authActions.js" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/calendarActions.js" afterPath="$PROJECT_DIR$/src/store/actions/calendarActions.js" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/configActions.js" afterPath="$PROJECT_DIR$/src/store/actions/configActions.js" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/officeActions.js" afterPath="$PROJECT_DIR$/src/store/actions/officeActions.js" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/userActions.js" afterPath="$PROJECT_DIR$/src/store/actions/userActions.js" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/calendarReducer.js" afterPath="$PROJECT_DIR$/src/store/reducers/calendarReducer.js" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/configReducer.js" afterPath="$PROJECT_DIR$/src/store/reducers/configReducer.js" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/officeReducer.js" afterPath="$PROJECT_DIR$/src/store/reducers/officeReducer.js" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/userReducer.js" afterPath="$PROJECT_DIR$/src/store/reducers/userReducer.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CreateUser.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/users/CreateUser.js">
+      <file leaf-file-name="userActions.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/store/actions/userActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="126" column="51" lean-forward="true" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+            <state relative-caret-position="244">
+              <caret line="79" column="26" lean-forward="false" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -69,8 +85,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/store/reducers/projectReducer.js" />
-        <option value="$PROJECT_DIR$/src/components/calenders/CalenderSummary.js" />
         <option value="$PROJECT_DIR$/src/components/calenders/CalenderDetails.js" />
         <option value="$PROJECT_DIR$/src/components/auth/SignOut.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -83,43 +97,45 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/users/Profile.js" />
         <option value="$PROJECT_DIR$/src/components/timesheet/Timesheet.js" />
-        <option value="$PROJECT_DIR$/src/components/layout/Sidebar.js" />
-        <option value="$PROJECT_DIR$/src/store/reducers/officeReducer.js" />
-        <option value="$PROJECT_DIR$/src/store/reducers/configReducer.js" />
         <option value="$PROJECT_DIR$/src/components/calendars/EditCalendar.js" />
-        <option value="$PROJECT_DIR$/src/store/reducers/calendarReducer.js" />
-        <option value="$PROJECT_DIR$/src/components/dashboard/Dashboard.js" />
         <option value="$PROJECT_DIR$/src/components/layout/Page404.js" />
         <option value="$PROJECT_DIR$/src/config.json" />
-        <option value="$PROJECT_DIR$/src/store/actions/calendarActions.js" />
-        <option value="$PROJECT_DIR$/src/store/actions/configActions.js" />
-        <option value="$PROJECT_DIR$/src/store/actions/officeActions.js" />
         <option value="$PROJECT_DIR$/src/components/layout/Navbar.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/authReducer.js" />
-        <option value="$PROJECT_DIR$/src/components/calendars/CalendarList.js" />
-        <option value="$PROJECT_DIR$/src/components/calendars/CreateCalendar.js" />
-        <option value="$PROJECT_DIR$/src/components/configs/UpdateConfig.js" />
-        <option value="$PROJECT_DIR$/src/components/offices/OfficeList.js" />
-        <option value="$PROJECT_DIR$/src/components/offices/CreateOffice.js" />
         <option value="$PROJECT_DIR$/src/components/utils/ListHead.js" />
         <option value="$PROJECT_DIR$/src/components/utils/List.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/listReducer.js" />
         <option value="$PROJECT_DIR$/src/store/actions/listActions.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/components/users/ChangePass.js" />
-        <option value="$PROJECT_DIR$/src/components/users/UpdateUser.js" />
-        <option value="$PROJECT_DIR$/src/components/configs/ConfigList.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/rootReducer.js" />
-        <option value="$PROJECT_DIR$/src/store/reducers/userReducer.js" />
-        <option value="$PROJECT_DIR$/src/store/actions/userActions.js" />
         <option value="$PROJECT_DIR$/src/components/users/UserList.js" />
-        <option value="$PROJECT_DIR$/src/components/utils/ListRow.js" />
-        <option value="$PROJECT_DIR$/src/store/actions/authActions.js" />
         <option value="$PROJECT_DIR$/src/components/auth/SignIn.js" />
+        <option value="$PROJECT_DIR$/src/components/configs/ConfigList.js" />
+        <option value="$PROJECT_DIR$/src/components/layout/Sidebar.js" />
+        <option value="$PROJECT_DIR$/src/components/dashboard/Dashboard.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/authActions.js" />
+        <option value="$PROJECT_DIR$/src/components/utils/ListRow.js" />
+        <option value="$PROJECT_DIR$/src/components/calendars/CalendarList.js" />
+        <option value="$PROJECT_DIR$/src/components/offices/OfficeList.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/configReducer.js" />
+        <option value="$PROJECT_DIR$/src/components/configs/UpdateConfig.js" />
+        <option value="$PROJECT_DIR$/src/components/calendars/CreateCalendar.js" />
+        <option value="$PROJECT_DIR$/src/components/offices/CreateOffice.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/users/ChangePass.js" />
         <option value="$PROJECT_DIR$/src/components/users/CreateUser.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/officeReducer.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/officeActions.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/configActions.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/calendarReducer.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/userReducer.js" />
+        <option value="$PROJECT_DIR$/src/components/users/UpdateUser.js" />
+        <option value="$PROJECT_DIR$/src/components/offices/UpdateOffice.js" />
+        <option value="$PROJECT_DIR$/src/components/calendars/UpdateCalendar.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/calendarActions.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/userActions.js" />
       </list>
     </option>
   </component>
@@ -135,7 +151,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="194" />
     <option name="y" value="-16" />
     <option name="width" value="1400" />
@@ -156,6 +172,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -199,6 +217,13 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="configs" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="rollcall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rollcall" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="dashboard" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="rollcall" type="b2602c69:ProjectViewProjectNode" />
@@ -252,8 +277,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,25 +337,27 @@
       <workItem from="1542093435638" duration="32018000" />
       <workItem from="1542173141295" duration="6755000" />
       <workItem from="1542215000101" duration="5494000" />
-      <workItem from="1542454461032" duration="9935000" />
+      <workItem from="1542454461032" duration="10366000" />
+      <workItem from="1542651963984" duration="9870000" />
+      <workItem from="1542690151920" duration="12190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191285000" />
+    <option name="totallyTimeSpent" value="213776000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16354166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1671875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26259378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -359,7 +384,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/lang/fa/label.php" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap-sidebar/sidebar.js" />
     <entry file="file://$PROJECT_DIR$/src/components/layout/SignedInLink.js" />
     <entry file="file://$PROJECT_DIR$/src/components/layout/SignedOutLink.js" />
@@ -388,45 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/officeReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/configReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/calendars/EditCalendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="71" column="11" lean-forward="true" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/dashboard/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/layout/Sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/layout/Page404.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -445,21 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/configActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="29" column="49" lean-forward="true" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/officeActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -493,44 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/calendars/CalendarList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="45" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/calendars/CreateCalendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/configs/UpdateConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/offices/CreateOffice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="91" column="38" lean-forward="false" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/offices/OfficeList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="45" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/utils/ListHead.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -539,20 +471,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/users/Profile.js" />
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/calendarReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/calendarActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/reducers/listReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="582">
@@ -576,93 +494,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/configs/ConfigList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/rootReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/users/ChangePass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="69" column="48" lean-forward="true" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/users/UpdateUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="69" column="15" lean-forward="true" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducers/userReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/utils/List.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/users/UserList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/utils/ListRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-          <folding>
-            <marker date="1542479426763" expanded="true" signature="2521:3068" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/userActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions/authActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -682,10 +517,210 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/users/CreateUser.js">
+    <entry file="file://$PROJECT_DIR$/src/components/layout/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="14" column="37" lean-forward="false" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/configs/ConfigList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/dashboard/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308">
+          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/authActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/utils/ListRow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
-          <caret line="126" column="51" lean-forward="true" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+          <caret line="69" column="22" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+          <folding>
+            <element signature="e#248#307#0" expanded="false" />
+            <marker date="1542661486290" expanded="true" signature="3032:3579" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/users/UserList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="49" column="51" lean-forward="false" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/calendars/CalendarList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/offices/OfficeList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/rootReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/offices/CreateOffice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="28" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1056">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/users/ChangePass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="59" column="38" lean-forward="false" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/users/CreateUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="68" column="34" lean-forward="false" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/configActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/officeActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="104" column="2" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="104" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/calendarReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/configReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/officeReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/userReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/configs/UpdateConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/offices/UpdateOffice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/users/UpdateUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="71" column="14" lean-forward="false" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/calendars/CreateCalendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="66" column="7" lean-forward="false" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/calendars/UpdateCalendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1760">
+          <caret line="21" column="76" lean-forward="false" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/calendarActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/userActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="79" column="26" lean-forward="false" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
           <folding />
         </state>
       </provider>

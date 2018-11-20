@@ -6,15 +6,32 @@ const  calendarReducer = (state = initialState, action) =>{
         case 'CREATE_CALENDAR':
             return {
             ...state,
-                calendars: action.calendars
+                calendar: action.calendar,
+                add_msg: action.add_msg
             };
-            break;
+        case 'CREATE_CALENDAR_FAILED':
+            return {
+                ...state,
+                add_msg: action.add_msg
+            };
+        case 'DELETE_CALENDAR':
+            return {
+                ...state,
+                calendars: action.calendars.filter(calendar =>
+                    calendar.id !== action.id
+                )
+            };
         case 'UPDATE_CALENDAR':
             return {
                 ...state,
-                calendars: action.calendars
+                calendar: action.calendar,
+                update_msg: action.update_msg
             };
-            break;
+        case 'UPDATE_CALENDAR_FAILED':
+            return {
+                ...state,
+                update_msg: action.update_msg
+            };
         case 'FETCH_CALENDAR':
             return {
                 ...state,

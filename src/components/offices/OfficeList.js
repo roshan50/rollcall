@@ -6,12 +6,20 @@ import List from "../utils/List";
 
 class OfficeList extends Component{
     componentDidMount(){
-        this.props.fetchAllOffices();
+        this.props.fetchAllOffices(this.props.token);
     }
     OfficeList(){
-        const heads = ['عرض', 'نام','طول', 'آدرس', 'فقط خواندنی']
+        const heads = ['عرض', 'نام','طول', 'آدرس']
+
         if(this.props.offices['offices'] instanceof Array){
-            return <List items={this.props.offices['offices']} heads={heads}/>;
+            var offices = this.props.offices['offices'];
+            offices.map(function(obj,i) {
+                delete obj['created_at']
+                delete obj['updated_at']
+                delete obj['deleted_at']
+                return obj;
+            });
+            return <List items={offices} heads={heads}/>;
         }
     }
     render() {
@@ -35,7 +43,7 @@ class OfficeList extends Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        fetchAllOffices : () => dispatch(fetchAllOffices())
+        fetchAllOffices : (token) => dispatch(fetchAllOffices(token))
     }
 }
 const mapStateToProps = (state)=>{

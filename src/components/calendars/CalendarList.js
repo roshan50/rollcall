@@ -6,12 +6,21 @@ import List from "../utils/List";
 
 class CalendarList extends Component{
     componentDidMount(){
-         this.props.fetchAllCalendars();
+         this.props.fetchAllCalendars(this.props.token);
     }
     CalendarList(){
-        const heads = ['سال', 'ماه']
+        const heads = ['سال', 'ماه','روزهای تعطیل']
+
         if(this.props.calendars['calendars'] instanceof Array){
-            return <List items={this.props.calendars['calendars']} heads={heads}/>;
+            var calendars = this.props.calendars['calendars'];
+            calendars.map(function(obj,i) {
+                obj['holidays'] = obj['holidays'].toString();
+                delete obj['created_at']
+                delete obj['updated_at']
+                delete obj['deleted_at']
+                return obj;
+            });
+            return <List items={calendars} heads={heads}/>;
         }
     }
     render() {
@@ -35,7 +44,7 @@ class CalendarList extends Component{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        fetchAllCalendars : () => dispatch(fetchAllCalendars())
+        fetchAllCalendars : (token) => dispatch(fetchAllCalendars(token))
     }
 }
 const mapStateToProps = (state)=>{

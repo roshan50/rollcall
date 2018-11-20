@@ -52,36 +52,18 @@ export const fetchUsers = (users) => {
     }
 };
 
-export function fetchOneUser(id,token) {
-    return (dispatch) => {
-        return axios.get(`${config.url}/${token}/user/show/${id}`)
-            .then(response => {
-                dispatch(fetchUserSuccess(response.data));
-            })
-            .catch(error => {
-                throw(error);
-            });
-    };
-};
-
-export const fetchUserSuccess = (user) => {
-    return {
-        type: 'FETCH_ONE_USER',
-        user
-    }
-};
-
 export const deleteUser = (id,url,token) => {
     return (dispatch,getState) => {
         var users = getState().users.users;
-        dispatch(deleteUserSuccess('msg',users,id))
+        console.log(users)
         return axios.get(`${config.url}/${token}/${url}/delete/${id}`)
             .then(response => {
                 dispatch(deleteUserSuccess(response.data,users,id))
                 console.log(response.data);
             })
             .catch(error => {
-                throw(error);
+                // throw(error);
+                console.log(error.response);
             });
     };
 };
@@ -98,19 +80,29 @@ export function updateUser(data,id,token) {
     return (dispatch) => {
         return axios.post(`${config.url}/${token}/user/update/${id}`,data)
             .then(response => {
-                dispatch(updateUserSuccess(response.data));
+                dispatch(updateUserSuccess(response.data.msg,data));
                 console.log(response.data);
             })
             .catch(error => {
-                throw(error);
+                console.log(error.response.data.desc);
+                dispatch(updateUserFailed(error.response.data.msg));
+                // throw(error);
             });
     };
 };
 
-export const updateUserSuccess = (users) => {
+export const updateUserSuccess = (msg,user) => {
     return {
         type: 'UPDATE_USER',
-        users
+        user,
+        update_msg:msg
+    }
+};
+
+export const updateUserFailed = (msg) => {
+    return {
+        type: 'UPDATE_USER',
+        update_msg:msg
     }
 };
 
