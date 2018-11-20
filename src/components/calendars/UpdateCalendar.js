@@ -13,7 +13,7 @@ class UpdateCalendar extends Component {
     }
     componentDidMount(){
         var id = this.props.match.params.id;
-        axios.get(`${config.url}/getCalendar/${id}`)
+        axios.get(`${config.url}/${this.props.token}/calendar/show/${id}`)
             .then(response => {
                 if(response.data.calendar) {
                     this.setState({
