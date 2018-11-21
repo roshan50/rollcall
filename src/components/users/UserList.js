@@ -9,10 +9,11 @@ class UserList extends Component{
         this.props.fetchAllUsers(this.props.token);
     }
     UserList(){
-        const heads = ['نام', 'ایمیل','نوع', 'مدیر ارشد', 'مدیر مستقیم']
+        const heads = ['نام','نوع', 'مدیر ارشد', 'مدیر مستقیم']
         if(this.props.users['users'] instanceof Array){
             var users = this.props.users['users'];
             users.map(function(obj,i) {
+                delete obj['email']
                 delete obj['profile']
                 delete obj['setting']
                 delete obj['created_at']

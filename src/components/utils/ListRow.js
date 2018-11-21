@@ -82,6 +82,16 @@ class ListRow extends Component {
                 </td>
     }
 
+    show_td(){
+        return <td style={{cursor:'pointer'}}>
+                    <Tooltip title="نمایش" placement="left">
+                        <NavLink className="nav-link" to={'/show/'+this.adr+'/'+this.props.item.id}>
+                            <MaterialIcon icon="account_box" color='green' />
+                        </NavLink>
+                    </Tooltip>
+                </td>
+    }
+
     render() {
         return (
             <tr>
@@ -95,6 +105,7 @@ class ListRow extends Component {
                         </NavLink>
                     </Tooltip>
                 </td>
+                { (this.adr === 'user') ? this.show_td() : ''}
             </tr>
         );
     }

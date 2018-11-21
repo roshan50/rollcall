@@ -10,6 +10,7 @@ import SignIn from "./components/auth/SignIn";
 import UserList from "./components/users/UserList";
 import CreateUser from "./components/users/CreateUser";
 import UpdateUser from "./components/users/UpdateUser";
+import ShowUser from "./components/users/ShowUser";
 import ChangePass from "./components/users/ChangePass";
 import CalendarList from "./components/calendars/CalendarList";
 import CreateCalendar from "./components/calendars/CreateCalendar";
@@ -41,6 +42,7 @@ class App extends Component {
                         <PrivateRoute path="/users" component={UserList} />
                         <PrivateRoute path="/new/users" component={CreateUser} />
                         <PrivateRoute path="/edit/user/:id" component={UpdateUser} />
+                        <PrivateRoute path="/show/user/:id" component={ShowUser} />
                         <PrivateRoute path="/calendars" component={CalendarList} />
                         <PrivateRoute path="/new/calendars" component={CreateCalendar} />
                         <PrivateRoute path="/edit/calendar/:id" component={UpdateCalendar} />
