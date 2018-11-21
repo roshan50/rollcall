@@ -3,7 +3,7 @@ import {updateUser, fetchUserTypes} from "../../store/actions/userActions";
 import {connect} from "react-redux";
 import axios from "axios/index";
 import config from "../../config";
-import { NavLink } from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
 import MaterialIcon from 'material-icons-react';
 
 class ShowUser extends React.Component {
@@ -39,6 +39,23 @@ class ShowUser extends React.Component {
 
         this.props.fetchUserTypes('chief',this.props.token);
         this.props.fetchUserTypes('direct',this.props.token);
+    }
+
+    QR(id){
+        console.log(id);
+        axios.get(`${config.url}/${this.props.token}/user/show/${id}?freshQRCode=1`)
+        .then(response => {
+            console.log(response.data.user)
+            if(response.data.user) {
+                this.setState({
+                    QR: response.data.QR?String.substr(response.data.QR,response.data.QR.indexOf('<svg')):'used'
+                });
+                this.props.history.push('/show/user/'+id);
+            }
+        })
+        .catch(error => {
+            throw(error);
+        });
     }
 
     svg(code){
@@ -85,9 +102,7 @@ class ShowUser extends React.Component {
                         />
                     </div>
                     <div className="form-group">
-                    {this.state.QR=='used'?<NavLink className="nav-link" to={'/show/user/'+this.state.id}>
-                            <MaterialIcon icon="refresh" color='green' />
-                        </NavLink>:this.svg(this.state.QR )}
+                    {this.state.QR=='used'?<MaterialIcon onClick={()=>{this.QR(this.state.id)}} icon="refresh" color='green' />:this.svg(this.state.QR )}
                     </div>
                 </form>
             </div>
