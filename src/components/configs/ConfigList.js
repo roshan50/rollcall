@@ -8,11 +8,12 @@ class ConfigList extends Component{
         this.props.fetchAllConfigs(this.props.token);
     }
     ConfigList(){
-        const heads = ['عنوان', 'مقدار','توصیف']
+        const heads = ['عنوان', 'مقدار']
 
         if(this.props.configs['configs'] instanceof Array){
             var configs = this.props.configs['configs'];
             configs.map(function(obj,i) {
+                delete obj['description']
                 delete obj['created_at']
                 delete obj['updated_at']
                 delete obj['deleted_at']

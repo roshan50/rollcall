@@ -44,16 +44,15 @@ class UpdateConfig extends Component {
         return (
             <div className="container d-flex justify-content-center">
                 <form action="" onSubmit={this.handleSubmit}  className="bg-light col-md-6">
-                    <h5 className="grey-text text-darken-3">تنظیمات</h5>
+                    <h5 className="grey-text text-darken-3">تنظیمات </h5>
                     <p className="text-danger">{this.props.msg}</p>
 
                     <div className="input-field d-flex mb-3">
-                        <label htmlFor="name" className="col-md-3 text-right">عنوان<span className="text-danger">*</span></label>
+                        <label htmlFor="name" className="col-md-3 text-right">عنوان</label>
                         <input type="text"
-                               onChange={this.handleChange}
+                               readOnly
                                id="name"
                                className="form-control col-md-8"
-                               required="required"
                                value={this.state.name}
                         />
                     </div>
@@ -68,19 +67,9 @@ class UpdateConfig extends Component {
                         />
                     </div>
                     <div className="input-field d-flex mb-3">
-                        <label htmlFor="description" className="col-md-3 text-right">مقدار<span className="text-danger">*</span></label>
-                        <input type="text"
-                               id="description"
-                               onChange={this.handleChange}
-                               className="form-control col-md-8"
-                               required="required"
-                               value={this.state.description}
-                        />
+                        <label htmlFor="description" className="col-md-3 text-right">توضیح<span className="text-danger">*</span></label>
+                        <p className="col-md-8">{this.state.description}</p>
                     </div>
-                    {/*<div className="input-field">*/}
-                        {/*<input type="checkbox" onChange={this.handleChange} id="ReadOnly"/>*/}
-                        {/*<label htmlFor="ReadOnly">فقط خواندنی</label>*/}
-                    {/*</div>*/}
                     <div className="input-filed">
                         <button className="btn btn-primary">ذخیره</button>
                     </div>
