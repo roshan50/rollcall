@@ -29,7 +29,7 @@ class ShowUser extends React.Component {
                         type: response.data.user.type,
                         chief: response.data.user.chief?response.data.user.chief.name:'-',
                         direct: response.data.user.direct?response.data.user.direct.name:'-',
-                        QR: response.data.QR?String.substr(response.data.QR,response.data.QR.indexOf('<svg')):'used'
+                        QR: response.data.QR?response.data.QR.substr(response.data.QR.indexOf('<svg')):'used'
                     });
                 }
             })
@@ -48,7 +48,7 @@ class ShowUser extends React.Component {
             console.log(response.data.user)
             if(response.data.user) {
                 this.setState({
-                    QR: response.data.QR?String.substr(response.data.QR,response.data.QR.indexOf('<svg')):'used'
+                    QR: response.data.QR?response.data.QR.substr(response.data.QR.indexOf('<svg')):'used'
                 });
                 this.props.history.push('/show/user/'+id);
             }
