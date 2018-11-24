@@ -9,15 +9,14 @@ class OfficeList extends Component{
         this.props.fetchAllOffices(this.props.token);
     }
     OfficeList(){
-        const heads = ['عرض', 'نام','طول', 'آدرس']
+        const heads = [ 'نام']
 
         if(this.props.offices['offices'] instanceof Array){
-            var offices = this.props.offices['offices'];
-            offices.map(function(obj,i) {
-                delete obj['created_at']
-                delete obj['updated_at']
-                delete obj['deleted_at']
-                return obj;
+            var offices = this.props.offices['offices'].map(function(obj,i) {
+                return {
+                    id:obj.id,
+                    name:obj.name,
+                } ;
             });
             return <List items={offices} heads={heads}/>;
         }

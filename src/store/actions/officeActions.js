@@ -8,9 +8,11 @@ export const createOffice = (data,token) => {
                 dispatch(createOfficeSuccess(response.data.msg,data))
             })
             .catch(error => {
-                // throw(error);
-                console.log(error.response.data.desc)
-                dispatch(createOfficeFailed(error.response.data.msg))
+                var msg='';
+                for(var key in error.response.data.desc){
+                    msg+=` ${error.response.data.desc[key]}.`
+                }
+                dispatch(createOfficeFailed(msg))
             });
     };
 };
@@ -81,9 +83,11 @@ export function updateOffice(data,id,token) {
                 console.log(response.data);
             })
             .catch(error => {
-                // throw(error);
-                console.log(error.response.data.desc);
-                dispatch(updateOfficeFailed(error.response.data.msg));
+                var msg='';
+                for(var key in error.response.data.desc){
+                    msg+=` ${error.response.data.desc[key]}.`
+                }
+                dispatch(createOfficeFailed(msg))
             });
     };
 };

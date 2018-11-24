@@ -10,7 +10,9 @@ class UpdateOffice extends Component {
         lat: '',
         long: '',
         description: '',
-        ReadOnly: 1,
+        start_worktime: '',
+        end_worktime: '',
+        end_overtime: '',
     }
     componentDidMount(){
         var id = this.props.match.params.id;
@@ -22,6 +24,9 @@ class UpdateOffice extends Component {
                         lat: response.data.office.lat,
                         long: response.data.office.long,
                         description: response.data.office.description,
+                        start_worktime: response.data.office.start_worktime,
+                        end_worktime: response.data.office.end_worktime,
+                        end_overtime: response.data.office.end_overtime,
                     });
                 }
             })
@@ -88,10 +93,36 @@ class UpdateOffice extends Component {
                                value={this.state.description}
                         />
                     </div>
-                    {/*<div className="input-field">*/}
-                    {/*<input type="checkbox" onChange={this.handleChange} id="ReadOnly"/>*/}
-                    {/*<label htmlFor="ReadOnly">فقط خواندنی</label>*/}
-                    {/*</div>*/}
+                    <div className="input-field d-flex mb-3">
+                        <label htmlFor="address" className="col-md-3 text-right">ساعت شروع کار<span className="text-danger">*</span></label>
+                        <input type="text"
+                               onChange={this.handleChange}
+                               id="start_worktime"
+                               className="form-control col-md-8"
+                               required="required"
+                               value={this.state.start_worktime}
+                        />
+                    </div>
+                    <div className="input-field d-flex mb-3">
+                        <label htmlFor="address" className="col-md-3 text-right">ساعت پایان کار<span className="text-danger">*</span></label>
+                        <input type="text"
+                               onChange={this.handleChange}
+                               id="end_worktime"
+                               className="form-control col-md-8"
+                               required="required"
+                               value={this.state.end_worktime}
+                        />
+                    </div>
+                    <div className="input-field d-flex mb-3">
+                        <label htmlFor="address" className="col-md-3 text-right">ساعت پایان اضافه کاری<span className="text-danger">*</span></label>
+                        <input type="text"
+                               onChange={this.handleChange}
+                               id="end_overtime"
+                               className="form-control col-md-8"
+                               required="required"
+                               value={this.state.end_overtime}
+                        />
+                    </div>
                     <div className="input-filed">
                         <button className="btn btn-primary">ذخیره</button>
                     </div>
