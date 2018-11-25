@@ -10,9 +10,10 @@ class UpdateCalendar extends Component {
         year: '',
         month: '1',
         holidays: '',
-        office: 0,
+        office_id: 0,
     }
     componentDidMount(){
+        this.props.fetchAllOffices(this.props.token);
         var id = this.props.match.params.id;
         axios.get(`${config.url}/${this.props.token}/calendar/show/${id}`)
             .then(response => {
@@ -44,7 +45,7 @@ class UpdateCalendar extends Component {
     }
 
     officesList(){
-        console.log(this.props)
+        console.log(this.props.offices)
         if(this.props.offices){
             return this.props.offices.map(office => {return <option value={office.id}>{office.name}</option>});
         }
@@ -63,7 +64,7 @@ class UpdateCalendar extends Component {
                         <select className="form-control col-md-8"
                                onChange={this.handleChange}
                                id="office_id"
-                               value={ this.state.office }>
+                               value={ this.state.office_id }>
                                {this.officesList()}
                         </select>
                     </div>
@@ -133,7 +134,8 @@ const mapDispatchToProps = (dispatch)=>{
 const mapStateToProps = (state)=>{
     return{
         token : state.auth.token,
-        msg: state.calendars.update_msg
+        msg: state.calendars.update_msg,
+        offices: state.offices.offices
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(UpdateCalendar);
