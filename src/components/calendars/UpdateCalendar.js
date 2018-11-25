@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import {updateCalendar} from "../../store/actions/calendarActions";
+import {fetchAllOffices} from "../../store/actions/officeActions";
 import axios from "axios/index";
 import config from "../../config";
 
@@ -9,7 +10,7 @@ class UpdateCalendar extends Component {
         year: '',
         month: '1',
         holidays: '',
-        ReadOnly: 1,
+        office: 0,
     }
     componentDidMount(){
         var id = this.props.match.params.id;
@@ -17,6 +18,7 @@ class UpdateCalendar extends Component {
             .then(response => {
                 if(response.data.calendar) {
                     this.setState({
+                        office:response.data.calendar.office.id,
                         year: response.data.calendar.year,
                         month: response.data.calendar.month,
                         holidays: response.data.calendar.holidays.toString(),
@@ -40,6 +42,15 @@ class UpdateCalendar extends Component {
         var id = this.props.match.params.id;
         this.props.updateCalendar(data,id,this.props.token);
     }
+
+    officesList(){
+        console.log(this.props)
+        if(this.props.offices){
+            return this.props.offices.map(office => {return <option value={office.id}>{office.name}</option>});
+        }
+        // throw('empty list');
+    }
+
     render() {
         return (
             <div className="container d-flex justify-content-center">
@@ -47,6 +58,15 @@ class UpdateCalendar extends Component {
                     <h5 className="grey-text text-darken-3">ویرایش تاریخ</h5>
                     <p className="text-danger">{this.props.msg}</p>
 
+                    <div className="input-field d-flex mb-3">
+                        <label htmlFor="year" className="col-md-3 text-right">دفتر<span className="text-danger">*</span></label>
+                        <select className="form-control col-md-8"
+                               onChange={this.handleChange}
+                               id="office_id"
+                               value={ this.state.office }>
+                               {this.officesList()}
+                        </select>
+                    </div>
                     <div className="input-field d-flex mb-3">
                         <label htmlFor="year" className="col-md-3 text-right">سال<span className="text-danger">*</span></label>
                         <input type="text"
@@ -106,6 +126,7 @@ class UpdateCalendar extends Component {
 }
 const mapDispatchToProps = (dispatch)=>{
     return{
+        fetchAllOffices: (token) => dispatch(fetchAllOffices(token)),
         updateCalendar: (calendar,id,token) => dispatch(updateCalendar(calendar,id,token))
     }
 }

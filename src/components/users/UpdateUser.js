@@ -51,6 +51,7 @@ class UpdateUser extends React.Component {
 
     chief_options(){
         var options = '';
+        console.log(this.props)
         if(this.props.chiefs){
             options = this.props.chiefs.map(function(chief,i) {
                 return <option key={i} value={chief.id}>{chief.name}</option>
